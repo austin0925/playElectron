@@ -10,10 +10,11 @@ const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+let win
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600, show: false, backgroundColor: '#2e2c29'})
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -21,6 +22,11 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
+
+  //test the 'ready-to-show
+  mainWindow.once('ready-to-show',() =>{
+    mainWindow.show();
+  })
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -32,6 +38,7 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
 }
 
 // This method will be called when Electron has finished
