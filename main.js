@@ -41,6 +41,25 @@ function createWindow () {
 
 }
 
+
+/**
+ * This is for my first to create a child window
+ */
+function createChild(){
+
+  win = new BrowserWindow({parent: mainWindow});
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, 'index2.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
+
+  win.once('ready-to-show', ()=>{
+    win.show();
+  })
+
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -60,6 +79,10 @@ app.on('activate', function () {
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
     createWindow()
+  }
+  console.log(win);
+  if (win === null){
+    createChild()
   }
 })
 
