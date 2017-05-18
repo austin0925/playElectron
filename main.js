@@ -12,6 +12,9 @@ const url = require('url')
 let mainWindow
 let win
 
+const tryMainBtn = document.getElementById('try');
+
+
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600, show: false, backgroundColor: '#2e2c29'})
@@ -39,6 +42,10 @@ function createWindow () {
     mainWindow = null
   })
 
+
+  tryMainBtn.addEventListener('click', function(){
+    alert('ha!');
+  })
 }
 
 
@@ -47,7 +54,8 @@ function createWindow () {
  */
 function createChild(){
 
-  win = new BrowserWindow({parent: mainWindow});
+  //win = new BrowserWindow({parent: mainWindow});
+  win = new BrowserWindow({width: 1000, height: 200, parent: mainWindow});
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index2.html'),
     protocol: 'file:',
@@ -82,9 +90,10 @@ app.on('activate', function () {
   }
   console.log(win);
   if (win === null){
-    createChild()
+    // createChild()
   }
 })
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
