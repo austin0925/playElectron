@@ -1,22 +1,22 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
-  "main": "main.js",
+  "name":"your-app",
+  "version":"0.1.0",
+  "description": "My first PlayGround in electron",
+  "main":"main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/austin0925/playElectron"
+  ,
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Electron","austin","PlayGround"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": {
+    "name": "austin",
+    "email": "m9421049@gms.ndhu.edu.tw"
+  },
+  "license": "MIT",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "~1.6.8"
   }
 }
