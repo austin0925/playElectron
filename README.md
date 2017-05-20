@@ -11,5 +11,10 @@
 
 #### basic file struction
 * package.json
+
+    1. name
+    2. version
+    3. ...
+
 * main.js
 * index.html
