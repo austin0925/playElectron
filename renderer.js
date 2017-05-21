@@ -81,10 +81,12 @@ const framelessBtn = document.getElementById('frameless-window');
 
 framelessBtn.addEventListener('click', (event) => {
   const modalPath = path.join('file://', __dirname, 'modal.html')
-  win = new BrowserWindow({width: 1000, height: 200, transparent: true, frame: false})
+  win = new BrowserWindow({width: 1000, height: 200, transparent: false, frame: false})
 
   win.on('close', () => {win = null})
   win.loadURL(modalPath)
   win.show()
+
+  alert(document.getElementById('off'))
 
 })
