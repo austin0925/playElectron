@@ -37,3 +37,39 @@ manageWindowBtn.addEventListener('click', (event) => {
       manageWindowsReply.innerText = message
     }
 })
+
+
+// third demo >> focus window
+const blurBtn = document.getElementById('blur-window')
+const focusBtn = document.getElementById('focus-window')
+
+blurBtn.addEventListener('click', () => {
+  const modalPath = path.join('file://', __dirname, 'modal.html')
+
+  win = new BrowserWindow({width: 100, height: 75})
+
+  win.on('focus', hideFocusBtn)
+  win.on('blur', showFocusBtn)
+
+  win.on('close', () => {
+    hideFocusBtn()
+    win = null
+  })
+
+  win.loadURL(modalPath)
+  win.show()
+
+  function showFocusBtn(btn){
+    if(!win) return
+    focusBtn.classList.add('smooth-appear')
+    focusBtn.classList.remove('disappear')
+    focusBtn.addEventListener('click', () => {
+      win.focus()
+    })
+  }
+
+  function hideFocusBtn(){
+    focusBtn.classList.add('disappear')
+    focusBtn.classList.remove('smooth-appear')
+  }
+})
