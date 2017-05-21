@@ -73,3 +73,18 @@ blurBtn.addEventListener('click', () => {
     focusBtn.classList.remove('smooth-appear')
   }
 })
+
+
+// forth demo >> frameless window
+
+const framelessBtn = document.getElementById('frameless-window');
+
+framelessBtn.addEventListener('click', (event) => {
+  const modalPath = path.join('file://', __dirname, 'modal.html')
+  win = new BrowserWindow({width: 1000, height: 200, transparent: true, frame: false})
+
+  win.on('close', () => {win = null})
+  win.loadURL(modalPath)
+  win.show()
+
+})
